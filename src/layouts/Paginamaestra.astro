@@ -1,0 +1,102 @@
+---
+
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Basic</title>
+</head>
+<body>
+    <div id="estructura-principal">
+        <div id="logo">
+            <div><a href="/"> <img src="../Logo.png"></a>
+            
+            </div>
+
+           
+            
+
+        </div>
+        <div id="cabezal">
+            <div id="logo"></div>
+        <a href="desfiles">desfiles</a>
+        <a href="eventos">eventos</a>
+        <a href="vlogs">vlogs</a>
+        <a href="viajes">viajes</a>
+
+        </div>
+        
+        <slot/>
+        
+    </div>
+        
+
+    
+
+     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+</body>
+</html>
+
+<style is:global>
+    @font-face {
+        font-family: "Akira";
+        src: url("../Akira Expanded Demo.otf");
+
+        
+    }
+    body{
+        margin: 0;
+        background: white;
+    }
+    #estructura-principal{
+        display: grid;
+        grid-template-columns: 100px 1fr 1100px 1fr;
+        grid-template-rows: 100px auto;
+        height: 100vh;
+    }
+    
+
+    #cabezal {
+        grid-column: 1/2;
+        grid-row: 2/3;
+        height: calc(100vh - 100px);
+        background: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+         border-radius: 0 0 50px 0;
+         z-index: 10;
+
+        a{
+            text-decoration: none;
+            color: white;
+            font-family: "Akira";
+        }
+    }
+
+    #logo {
+        grid-column: 1/5;
+        grid-row: 1/2;
+        display: flex;
+        z-index: 10;
+       
+    /* width es ancho, height es altura*/
+
+        img{ height: 46px;}
+
+        div{
+            background: black;
+            padding: 25px 40px;
+            border-radius: 0 0 50px 0;
+        }
+    }
+
+h1, h2, h3, h4{
+    font-family: "Akira";
+}
+
+</style>
+

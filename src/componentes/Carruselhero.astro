@@ -1,0 +1,74 @@
+---
+const traerArticulos = await fetch('https://public-api.wordpress.com/wp/v2/sites/thebasics05.wordpress.com/posts');
+const json = await traerArticulos.json();
+---
+<swiper-container class="mySwiper" pagination="true">
+    
+
+    {
+      json.map((articulo:any) => (
+        <swiper-slide>
+
+          <div class="imagen">
+            <img src={articulo?.jetpack_featured_media_url} alt="">
+          </div>
+
+          <div class="info">
+            <h2><a href={articulo?.slug}>
+              {articulo?.title?.rendered}
+              </a></h2>
+            <div id="sumario" set:html={articulo?.excerpt?.rendered}></div>
+          </div>
+        </swiper-slide>
+      ))
+    }
+    
+
+    
+  </swiper-container>
+
+  
+
+ <style>
+
+  
+
+    swiper-container {
+      width: 100%;
+      height: 100vh;
+    }
+
+    swiper-slide {
+      
+      font-size: 18px;
+      background: #444;
+      display: grid;
+      grid-template-columns: repeat(24, 1fr);
+      grid-template-rows: repeat(14, 1fr);
+    }
+
+    swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .imagen {
+        grid-column: 1/25;
+        grid-row: 1/15;  }
+
+    .info {
+          grid-column:4/11;
+          grid-row: 4/8; 
+
+          #sumario p{
+            color:white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+          }
+    } p{
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+
+
+
+</style>
